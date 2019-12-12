@@ -1,0 +1,12 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+  Import our Directory.Build.props and /eng infrastructure
+  -->
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., Directory.Build.props))\Directory.Build.props" />
+
+  <PropertyGroup>
+    <CommonCogServicesNotes>common release notes</CommonCogServicesNotes>
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
+    <DocumentationFile>$(IntermediateOutputPath)$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+</Project>
