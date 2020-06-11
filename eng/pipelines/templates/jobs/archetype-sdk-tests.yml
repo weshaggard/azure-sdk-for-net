@@ -15,7 +15,7 @@ jobs:
       - name: SubscriptionConfiguration
         value: ${{ parameters.SubscriptionConfiguration }}
       - name: Location
-        value: $[coalesce(variables["Location"], "${{ parameters.Location }}")]
+        value: ${{ coalesce(variables["_Location"], parameters.Location) }}
 
     timeoutInMinutes: ${{ parameters.TimeoutInMinutes }}
 
