@@ -1,3 +1,6 @@
+variables:
+  - template: ../variables/globals.yml
+
 jobs:
   - job: Build
     timeoutInMinutes: 100
@@ -76,8 +79,6 @@ jobs:
       #       pathtoPublish: $(msBuildLogDir)
       #       artifactName: MsBuildLogs
   - job: "Analyze"
-    variables:
-      - template: ../variables/globals.yml
     dependsOn:
       - Build
     pool:
