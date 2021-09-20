@@ -1,8 +1,9 @@
 parameters:
 - name: Artifacts
+  type: object
   default:
     - Azure.MixedReality.Authentication
-    - Azure.MixedReality.Authentication
+    - Azure.MixedReality.Authentication2
 # - name: ArtifactStages
 #   type: stageList
 #   values:
