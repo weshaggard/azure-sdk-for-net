@@ -50,6 +50,14 @@ stages:
           steps:
             - pwsh: echo "Hello World"
 
+  - ${{if eq(variables['Build.Reason'], '')}}:
+    - stage: EmptyBuildReason
+      jobs:
+        - job: EmptyJob
+          steps:
+            - pwsh: echo "Hello World"
+
+
   #- ${{if and(eq(variables['Build.Reason'], 'Manual'), eq(variables['System.TeamProject'], 'playground'))}}:
   - ${{ each artifact in parameters.Artifacts }}:
     - stage: Release_${{artifact.safeName}}
