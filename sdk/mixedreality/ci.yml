@@ -4,6 +4,13 @@ parameters:
   default:
     - name: Azure.MixedReality.Authentication
       safeName: AzureMixedRealityAuthentication
+- name: ArtifactStages
+  type: stagelist
+  values:
+    - name: Azure.MixedReality.Authentication
+      safeName: AzureMixedRealityAuthentication
+    - name: Azure.MixedReality.Authentication2
+      safeName: AzureMixedRealityAuthentication2
 - name: myString
   type: string
   default: a string
