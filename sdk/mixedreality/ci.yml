@@ -5,7 +5,7 @@ parameters:
     - name: Azure.MixedReality.Authentication
       safeName: AzureMixedRealityAuthentication
 - name: ArtifactStages
-  type: stagelist
+  type: stageList
   values:
     - name: Azure.MixedReality.Authentication
       safeName: AzureMixedRealityAuthentication
