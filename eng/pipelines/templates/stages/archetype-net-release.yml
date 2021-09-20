@@ -10,7 +10,7 @@ stages:
     dependsOn: ${{parameters.DependsOn}}
     jobs:
       - deployment: SignPackage
-        #environment: esrp
+        environment: esrp
         pool:
           name: azsdk-pool-mms-win-2019-general
           vmImage: MMS2019
@@ -46,7 +46,7 @@ stages:
           - deployment: TagRepository
             displayName: "Create release tag"
             condition: ne(variables['Skip.TagRepository'], 'true')
-            #environment: github
+            environment: github
 
             pool:
               name: azsdk-pool-mms-win-2019-general
@@ -90,7 +90,7 @@ stages:
             - deployment: PublishPackage
               displayName: Publish package to Nuget.org and DevOps Feed
               condition: and(succeeded(), ne(variables['Skip.PublishPackage'], 'true'))
-              #environment: nuget
+              environment: nuget
               dependsOn: TagRepository
 
               pool:
@@ -120,7 +120,7 @@ stages:
             - deployment: UploadSymbols
               displayName: Upload Symbols to Symbols Server
               condition: and(succeeded(), ne(variables['Skip.SymbolsUpload'], 'true'))
-              #environment: nuget
+              environment: nuget
               dependsOn: PublishPackage
 
               pool:
@@ -147,7 +147,7 @@ stages:
             - deployment: PublicDocsMS
               displayName: Publish to Docs.MS
               condition: and(succeeded(), ne(variables['Skip.PublishDocs'], 'true'))
-              #environment: githubio
+              environment: githubio
               dependsOn: PublishPackage
 
               variables:
@@ -187,7 +187,7 @@ stages:
             - deployment: PublishDocs
               displayName: Publish Docs to GitHub pages
               condition: and(succeeded(), ne(variables['Skip.PublishDocs'], 'true'))
-              #environment: githubio
+              environment: githubio
               dependsOn: PublishPackage
 
               pool:
@@ -213,7 +213,7 @@ stages:
             - deployment: UpdatePackageVersion
               displayName: "Update Package Version"
               condition: and(succeeded(), ne(variables['Skip.UpdatePackageVersion'], 'true'))
-              #environment: github
+              environment: github
               dependsOn: PublishPackage
 
               pool:
