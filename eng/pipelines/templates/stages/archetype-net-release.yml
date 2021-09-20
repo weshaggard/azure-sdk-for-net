@@ -38,7 +38,7 @@ stages:
 
   #- ${{if and(eq(variables['Build.Reason'], 'Manual'), eq(variables['System.TeamProject'], 'playground'))}}:
   - ${{ each artifact in parameters.Artifacts }}:
-    - stage: Release_${{artifact.safeName}}
+    - stage: Release_${{artifact.safeName}}_$(Build.Reason)
       displayName: 'Release: ${{artifact.name}}'
       dependsOn: Signing
       condition: and(succeeded(), ne(variables['SetDevVersion'], 'true'), ne(variables['Skip.Release'], 'true'), ne(variables['Build.Repository.Name'], 'Azure/azure-sdk-for-net-pr'))
