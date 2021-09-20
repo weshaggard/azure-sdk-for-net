@@ -1,16 +1,15 @@
 parameters:
 - name: Artifacts
-  type: object
   default:
-    - name: Azure.MixedReality.Authentication
-      safeName: AzureMixedRealityAuthentication
-- name: ArtifactStages
-  type: stageList
-  values:
-    - name: Azure.MixedReality.Authentication
-      safeName: AzureMixedRealityAuthentication
-    - name: Azure.MixedReality.Authentication2
-      safeName: AzureMixedRealityAuthentication2
+    - Azure.MixedReality.Authentication
+    - Azure.MixedReality.Authentication
+# - name: ArtifactStages
+#   type: stageList
+#   values:
+#     - name: Azure.MixedReality.Authentication
+#       safeName: AzureMixedRealityAuthentication
+#     - name: Azure.MixedReality.Authentication2
+#       safeName: AzureMixedRealityAuthentication2
 - name: myString
   type: string
   default: a string
