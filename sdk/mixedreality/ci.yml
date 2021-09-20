@@ -1,3 +1,10 @@
+parameters:
+- name: Artifacts
+  type: object
+  default:
+    - name: Azure.MixedReality.Authentication
+      safeName: AzureMixedRealityAuthentication
+
 # NOTE: Please refer to https://aka.ms/azsdk/engsys/ci-yaml before editing this file.
 trigger:
   branches:
@@ -25,6 +32,5 @@ extends:
   parameters:
     ServiceDirectory: mixedreality
     ArtifactName: packages
-    Artifacts:
-    - name: Azure.MixedReality.Authentication
-      safeName: AzureMixedRealityAuthentication
+    Artifacts: ${{ parameters.Artifacts }}
+
